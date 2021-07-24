@@ -4,7 +4,7 @@ pipeline {
         example key = 'example value'
     }
   parameters{
-      choice(choices: 'Dev\nTest\nProd',description:'Development',name:'Dev')
+      choice(choices: 'Dev\nTest\nProd',description:'Development',name:'branch')
       
   }
     stages {
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 scripts {
                     
-                    git branch: 'main', credentialsId: '327dfd62-48fa-459e-95fb-875ea8c12126', url: 'git@github.com:aswathipcg/DemoAppJenkin.git'
+                    git branch: "${branch}", credentialsId: '327dfd62-48fa-459e-95fb-875ea8c12126', url: 'git@github.com:aswathipcg/DemoAppJenkin.git'
                 }
             }
         }
